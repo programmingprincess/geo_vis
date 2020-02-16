@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>MapmyIndia Maps API: Info Windows Example</title>
+        <link rel="icon" href="http://mapmyindia.com/images/favicon.ico" type="image/x-icon" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!--put your map api javascript url with key here-->
+        <!--rxmixvdy1wp4hcnxr4fbp5xiloim6ew9-->
+        <script src="http://apis.mapmyindia.com/advancedmaps/v1/rxmixvdy1wp4hcnxr4fbp5xiloim6ew9/map_load?v=1.3"></script>
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="top-div">
+            <span style="font-size: 20px">MapmyIndia Maps API: </span> 
+            <span style="font-size:16px;color:#777">Map Info Windows Example</span>
+        </div>
+
+        <div id="result">
+            <div class="btn-div"><button onclick="mapmyindia_show_info_window()">Default Info Window</button></div>
+            <div class="btn-div"><button onclick="mapmyindia_open_fancy_info_window()">A Better Info Window</button></div>
+            <div class="btn-div"><button onclick="mapmyindia_custom_info_window()" >A Custom Info Window</button></div>
+            <div class="btn-div"><button onclick="mapmyindia_hide_info_window()">Hide Info Window</button></div>
+
+            <div class="msg-cont">
+                <ul class="msg-list">
+                    <li>Click on the marker to show an info window.</li>
+                    <li>Click on the map to create a new marker with popup.</li>
+                </ul>
+            </div>
+            <div class="event-header">Event Logs</div>
+            <div id="event-log"></div>
+        </div>
+        <div id="map"></div>
+
+        <script src="my.js"></script>
+    </body>
+</html>
