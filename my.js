@@ -24,12 +24,12 @@ window.onload = function () {
         var title = "Sample Text Marker!";
         var m = addMarker(e.latlng, '', title);
         m.bindPopup(title).openPopup();
-        var event_div = document.getElementById("event-log");
-        event_div.innerHTML = "New marker created! <br>" + event_div.innerHTML;
+        // var event_div = document.getElementById("event-log");
+        // event_div.innerHTML = "New marker created! <br>" + event_div.innerHTML;
     });
 
     /***content for custom info window***/
-    var cont = "<div><h2 style=\"font: bold 16px arial helvetica\">Complex Info Window</h2>" +
+    var cont = "<div><h2 style=\"font: bold 16px arial helvetica\">Info</h2>" +
             "<p style=\"font: italic 14px/20px times\">This content is made of custom styled elements.</p>" +
             "<p style=\"font: 12px/14px Verdana\;padding-top: 10px;text-indent: 30px\">" +
             "The heading level 2 has custom set style, and so does the previous paragraph.<br>" +
@@ -46,10 +46,10 @@ window.onload = function () {
 
     var position = mk1.getLatLng();
     /***bind popup with marker***/
-    mk1.bindPopup("<div class='info-div'>Hello world info window.<div>");
-    mk2.bindPopup("<div class='info-div'>Example of info window.<div>");
-    mk3.bindPopup(cont);
-    mk4.bindPopup("<div class='info-div'>This is info window demo.<div>")
+    mk1.bindPopup("<div class='info-div'>Village: getVillage <br> Mobile coverage: <br> </div>");
+    mk2.bindPopup("<div class='info-div'>Village: getVillage <br> Mobile coverage: <br> </div>");
+    mk3.bindPopup("<div class='info-div'>Village: getVillage <br> Mobile coverage: <br> </div>");
+    mk4.bindPopup("<div class='info-div'>Village: getVillage <br> Mobile coverage: <br> <div>")
     mapmyindia_fancy_info_window();
 };
 function addMarker(position, icon, title) {
@@ -96,7 +96,7 @@ var create_content = function (tittle, content) {
     return h.join("");
 };
 var mapmyindia_fancy_info_window = function () {
-    var content = create_content("A Better Info Window", "An example of a richer info window.");
+    var content = create_content("getVillage()", "Mobile coverage:");
     /*bind popup with marker*/
     mk5.bindPopup(content);
 };
@@ -109,3 +109,30 @@ var mapmyindia_custom_info_window = function () {
 var mapmyindia_hide_info_window = function () {
     map.closePopup();
 }
+
+// setting boundaries 
+
+var geoParams =
+{
+    AccessToken     :   'xxxx-xxxxx-xxxxxxxx-xxxxxx-xxxx',
+    GeoBoundType    :   'stt_nme',
+    GeoBound    :   ['haryana'],
+    Attribute       :   't_p',
+    Query       :   '>10000',
+    Style       :   
+        {
+            Label   :    true,
+            LabelColor  :   '13592e',
+            LabelSize   :   10,
+            FillColor   :   'ffe0aa',
+            BorderColor  :   '13592e',
+            BorderWidth  :   2,
+            Opacity :   0.5
+        }
+};
+
+var GeoDataLayer = geoAnalytics.getPanchayat(geoParams); // for panchayat layer
+
+map.addLayer(GeoDataLayer);
+
+geoAnalytics.setBounds('pincode',geoParams,map); // for pincode layer

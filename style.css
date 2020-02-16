@@ -5,9 +5,10 @@ body {
     height: 100%;font-family:Verdana,sans-serif, Arial;color:#000;margin: 0; font-size:14px; padding: 0;
 }
 #map {
-    position: absolute;left: 312px; top: 46px;right: 2px; bottom: 2px;border: 1px solid #cccccc;
+    position: absolute;left: 2px; top: 46px;right: 2px; bottom: 2px;border: 1px solid #cccccc;
 }
 #result {
+    display: none;
     position: absolute;left: 2px; top: 46px;width: 306px;bottom: 2px;border: 1px solid #cccccc;background-color: #FAFAFA;overflow: auto;
 }
 .info_css{
